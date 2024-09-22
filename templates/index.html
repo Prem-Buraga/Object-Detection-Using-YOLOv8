@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection</title>
+</head>
+<body>
+    <h1>Object Detection</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+    {% if counts %}
+        <h2>Detection Results:</h2>
+        <ul>
+            {% for class_name, count in counts.items() %}
+                <li>{{ class_name }}s = {{ count }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
